@@ -1,0 +1,8 @@
+<h2>Rankings</h2>
+<div id="container">
+  <div *ngFor="let user of users, let idx = index">
+    <p>{{idx+1}} Score: {{user.score}}</p>
+    <img src="{{user.image}}">
+    <p>{{user.name}}</p>
+  </div>
+</div>

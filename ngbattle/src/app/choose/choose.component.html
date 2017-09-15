@@ -1,0 +1,31 @@
+<div id="container">
+  <div class="player">
+    <div *ngIf="!player1Found">
+      <h2>Player 1</h2>
+      <form (submit)="getPlayer1()">
+        <div><label></label><input name='player1name' [(ngModel)] = "player1.name" type="text"></div>
+        <div><input type="submit" value='Get User'></div>
+      </form>
+    </div>
+    <p style="color: red;" *ngIf="player1Err">Github username does not exist. Try again.</p>
+    <div *ngIf="player1Found">
+      <img src="{{player1.image}}" alt="">
+      <p>{{player1.name}}</p>
+    </div>
+  </div>
+  <div class="player">
+    <div *ngIf="!player2Found">
+      <h2>Player 2</h2>
+      <form (submit)="getPlayer2()">
+        <div><label for=""></label><input name='player2name' [(ngModel)]="player2.name" type="text"></div>
+        <div><input type="submit" value='Get User'></div>
+      </form>
+    </div>
+    <p style="color: red;" *ngIf="player2Err">Github username does not exist. Try again.</p>
+    <div *ngIf="player2Found">
+      <img src="{{player2.image}}" alt="">
+      <p>{{player2.name}}</p>
+    </div>
+  </div>
+  <button *ngIf="player1Found && player2Found" [routerLink]="['results']">BATTLE!</button>
+</div>
